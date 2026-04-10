@@ -17,7 +17,7 @@ function calcularEdad() {
     }
 }
 
-/*function validarCedula(cedula) {
+function validarCedula(cedula) {
     if (cedula.length !== 10) return false;
     const digito_region = parseInt(cedula.substring(0, 2));
     if (digito_region >= 1 && digito_region <= 24) {
@@ -40,32 +40,19 @@ function calcularEdad() {
         return digito_validador === ultimo_digito;
     }
     return false;
-}*/
+}
 
 function validarYEnviarVertical(event) {
     event.preventDefault();
 
     const form = event.target;
-    //const cedula = form.cedula.value;
+    const cedula = form.cedula.value;
 
-    //if (!validarCedula(cedula)) {
-    //    alert("La cédula ingresada NO es válida.");
-    //    return;
-    //}
-
-    fetch(form.action, {
-        method: "POST",
-        body: new FormData(form)
-    })
-    .then(res => res.text())
-    .then(resp => {
-        if (resp.trim() === "exito") {
-            alert("Usuario registrado correctamente");
-            cargarTab('paginas/visualizacionUs.php');
-        } else {
-            alert(resp);
-        }
-    });
+    if (!validarCedula(cedula)) {
+        alert("La cédula ingresada NO es válida.");
+        return;
+    }
+    registrarUsuarioAjax(form);
 }
 
 function recargarVistaCorrecta() {
@@ -200,9 +187,7 @@ window.buscarUsuariosAjax = function(event, pagina = 1) {
     });
 };
 
-window.registrarUsuarioAjax = function(event) {
-    const form = event.target;
-
+function registrarUsuarioAjax(form) {
     fetch(form.action, {
         method: "POST",
         body: new FormData(form)
@@ -211,7 +196,12 @@ window.registrarUsuarioAjax = function(event) {
     .then(resp => {
         if (resp.trim() === "exito") {
             alert("Usuario registrado correctamente");
-            cargarTab('paginas/visualizacionUs.php');
+            
+            if (typeof cargarTab === "function") {
+                cargarTab('paginas/visualizacionUs.php');
+            } else {
+                window.location.href = 'paginas/visualizacionUs.php';
+            }
 
         } else {
             alert(resp);
@@ -221,4 +211,4 @@ window.registrarUsuarioAjax = function(event) {
         console.error(err);
         alert("Error en la conexión");
     });
-};
+}

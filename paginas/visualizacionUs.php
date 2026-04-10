@@ -20,11 +20,6 @@ $sql = "SELECT u.*
 $res = $conn->query($sql);
 ?>
 
-<link rel="stylesheet" href="css/estiloEmpresarial.css">
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/visualCss.css">
-    <link rel="stylesheet" href="../css/formularioCss.css">
-
 <div id="contenido-spa" class="w3-container w3-padding-32">
     <div class="contenedor" style="max-width:1200px; margin:auto;">
         

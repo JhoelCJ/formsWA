@@ -1,20 +1,13 @@
 <?php
 include_once("../php/conexion.php");
 ?>
-<script src="../js/funcionalidad_usuario.js"></script>
-
-<link rel="stylesheet" href="css/estiloEmpresarial.css">
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/visualCss.css">
-    <link rel="stylesheet" href="../css/formularioCss.css">
 
 <div id="contenido-spa" class="w3-container w3-padding-32">
     
     <div class="contenedor" style="max-width:600px; margin:auto;">
         <h1>Nuevo Usuario / Alumno</h1>
-        
-        <form method="post" action="../php/usuario/insercion.php" onsubmit="validarYEnviarVertical(event)">
-            
+
+        <form method="post" action="php/usuario/insercion.php" onsubmit="validarYEnviarVertical(event)">
             <fieldset>
                 <legend>DATOS PERSONALES</legend>
                 
