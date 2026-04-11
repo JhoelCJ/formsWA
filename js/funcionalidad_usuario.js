@@ -1,4 +1,3 @@
-/* Archivo: js/funcionalidad_usuario.js */
 
 function calcularEdad() {
     const inputFecha = document.getElementById("fecha_nacimiento");
