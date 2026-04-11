@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "admin";
-$password = "admin";
+$username = "root";
+$password = "rootroot";
 $database = "wa_form";
 
 $conn = new mysqli($servername, $username, $password, $database);
